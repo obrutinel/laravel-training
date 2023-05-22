@@ -22,7 +22,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::resource('candidate', CandidateController::class);
 
-    Route::get('/companies', [CompanyController::class, 'index'])->name('companies');
+    Route::resource('company', CompanyController::class);
     Route::view('/companies/vue', 'admin.company.index-vue')->name('companies.vue');
 });
 
