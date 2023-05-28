@@ -14,5 +14,11 @@ class Company extends Model
         'name',
         'phone',
         'website',
+        'enable',
+        'send_mail_at',
+    ];
+
+    protected $casts = [
+        'mail_send_at' => 'datetime',
     ];
 }

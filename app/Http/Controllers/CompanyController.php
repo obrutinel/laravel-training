@@ -32,4 +32,13 @@ class CompanyController extends Controller
             ->route('admin.company.index')
             ->with('success', 'Company updated.');
     }
+
+    public function destroy(Company $company): RedirectResponse
+    {
+        $company->delete();
+
+        return redirect()
+            ->route('admin.company.index')
+            ->with('success', 'Company deleted.');
+    }
 }

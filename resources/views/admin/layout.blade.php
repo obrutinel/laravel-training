@@ -20,4 +20,5 @@
         </div>
 
     </body>
+    @stack('custom-js')
 </html>
