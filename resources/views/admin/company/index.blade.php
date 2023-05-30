@@ -41,46 +41,43 @@
                         <a href="{{ route('admin.company.edit', $company->id) }}" class="btn btn-primary">
                             <i class="fa-regular fa-pen-to-square"></i>
                         </a>
-                        <a href="{{ route('admin.company.edit', $company->id) }}" class="btn btn-warning">
+                        <a href="{{ route('admin.company.mail', $company->id) }}" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#mailModal">
                             <i class="fa-regular fa-envelope"></i>
                         </a>
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                            Launch demo modal
-                        </button>
+                        <a href="{{ route('admin.company.destroy', $company->id) }}" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                            <i class="fa-regular fa-trash-alt"></i>
+                        </a>
                     </td>
                 </tr>
             @endforeach
         </tbody>
     </table>
 
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    ...
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
-            </div>
-        </div>
-    </div>
+    {{ $companies->links() }}
 
-
-
+    @include('admin.company.modals.mail')
     @include('admin.company.modals.delete')
-
-
 
 @endsection
 
 @push('custom-js')
-<script>
+<script type="module">
+
+    $(document).ready(function() {
+
+        // DELETE MODAL
+        $('#deleteModal').on('show.bs.modal', function (event) {
+            let url = $(event.relatedTarget).attr('href');
+            $(this).find('form').attr('action', url);
+        });
+
+        // MAIL MODAL
+        $('#mailModal').on('show.bs.modal', function (event) {
+            let url = $(event.relatedTarget).attr('href');
+            $(this).find('form').attr('action', url);
+        })
+
+    });
 
 </script>
 @endpush

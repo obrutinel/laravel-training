@@ -15,7 +15,7 @@ class Company extends Model
         'phone',
         'website',
         'enable',
-        'send_mail_at',
+        'mail_send_at',
     ];
 
     protected $casts = [

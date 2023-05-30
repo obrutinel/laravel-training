@@ -6,6 +6,7 @@
 
         <title>@yield('title')</title>
 
+        @stack('custom-css')
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body>

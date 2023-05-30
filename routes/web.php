@@ -23,6 +23,8 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::resource('candidate', CandidateController::class);
 
     Route::resource('company', CompanyController::class);
+    Route::post('company/{company}/mail', [CompanyController::class, 'mail'])->name('company.mail');
+
     Route::view('/companies/vue', 'admin.company.index-vue')->name('companies.vue');
 });
 

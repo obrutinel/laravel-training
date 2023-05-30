@@ -16,6 +16,9 @@
         "@fortawesome/fontawesome-free": "^6.4.0",
         "@popperjs/core": "^2.11.8",
         "bootstrap": "^5.2.3",
+        "filepond": "^4.30.4",
+        "jquery": "^3.7.0",
+        "jsdom": "^22.1.0",
         "laravel-vue-pagination": "^4.1.0",
         "vue-router": "^4.0.13"
     }
