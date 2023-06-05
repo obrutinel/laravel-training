@@ -19,14 +19,15 @@ class CompanyController extends Controller
         return CompanyResource::collection(Company::paginate(10));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(CompanyRequest $request)
     {
         $company = Company::create($request->validated());
 
-        return new CompanyResource($company);
+        return response()->json([
+            'success' => true,
+            'company' => $company,
+        ]);
+        //return new CompanyResource($company);
     }
 
     /**

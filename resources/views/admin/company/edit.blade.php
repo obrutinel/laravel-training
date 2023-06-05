@@ -56,24 +56,7 @@
 @endpush
 
 @push('custom-js')
-    <script src="//unpkg.com/filepond-plugin-file-validate-type/dist/filepond-plugin-file-validate-type.js"></script>
+    <!--<script src="//unpkg.com/filepond-plugin-file-validate-type/dist/filepond-plugin-file-validate-type.js"></script>
     <script src="//unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
-    <script src="//unpkg.com/filepond@^4/dist/filepond.js"></script>
-    <script>
-        FilePond.registerPlugin(FilePondPluginImagePreview);
-        FilePond.registerPlugin(FilePondPluginFileValidateType);
-
-        const inputElement = document.querySelector('#image');
-
-        const pond = FilePond.create(inputElement, {
-            acceptedFileTypes: ['image/*'],
-            server: {
-                process: '{{ route('upload') }}',
-                revert: '{{ route('revert') }}',
-                headers: {
-                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
-                }
-            }
-        });
-    </script>
+    <script src="//unpkg.com/filepond@^4/dist/filepond.js"></script>-->
 @endpush

@@ -26,6 +26,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::post('company/{company}/mail', [CompanyController::class, 'mail'])->name('company.mail');
 
     Route::view('/companies/vue', 'admin.company.index-vue')->name('companies.vue');
+    Route::view('/companies/vue/create', 'admin.company.create-vue')->name('companies.vue.create');
 });
 
 Route::get('/', function () {
