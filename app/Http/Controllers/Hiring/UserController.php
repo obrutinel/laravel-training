@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Hiring;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -18,9 +20,20 @@ class UserController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request): JsonResponse
     {
-        //
+        $user = User::create([
+            'lastname' => $request->lastname,
+            'firstname' => $request->firstname,
+            'email' => $request->email,
+            'password' => $request->password
+        ]);
+
+        $user->roles()->attach(2);
+
+        return response()->json([
+            'data' => $user
+        ]);
     }
 
     /**

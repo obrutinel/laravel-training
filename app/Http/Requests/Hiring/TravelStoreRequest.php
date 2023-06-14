@@ -16,11 +16,11 @@ class TravelStoreRequest extends FormRequest
     {
         return [
             'name' => 'required|string',
-            'slug' => 'required|unique:travels,slug',
+            'slug' => 'unique:travels,slug',
         ];
     }
 
-    public function prepareForValidation()
+    public function prepareForValidation(): void
     {
         $this->merge([
             'slug' => Str::slug($this->name),

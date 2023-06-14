@@ -25,16 +25,15 @@ class TravelController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(TravelStoreRequest $request)
+    public function store(TravelStoreRequest $request): JsonResponse
     {
         $dataValidated = $request->validated();
 
         $travel = Travel::create($dataValidated);
 
-        return [
-            "status" => 1,
-            "data" => $travel
-        ];
+        return response()->json([
+            'data' => $travel
+        ]);
     }
 
     /**
